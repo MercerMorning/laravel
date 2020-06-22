@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\Http\Requests\BookRequest;
+use App\Mail\BookEdit;
+use App\Mail\test;
 use Illuminate\Http\Request;
 use Barryvdh\Debugbar\Facade as DebugBar;
 
@@ -22,6 +24,7 @@ class BookController extends Controller
 
     function edit(Book $book)
     {
+        //\Mail::to(\Auth::user())->send(new BookEdit(['book' => $book]));
         return view('books.edit', ['book' => $book]);
     }
 
